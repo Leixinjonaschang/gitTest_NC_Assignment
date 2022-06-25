@@ -249,3 +249,42 @@
 # if __name__ == '__main__':
 #     main()
 
+#------
+# 勾选菜单
+
+# import sys
+# from PyQt6.QtWidgets import QMainWindow, QApplication
+# from PyQt6.QtGui import QAction
+#
+# class Example(QMainWindow):
+#     def __init__(self):
+#         super().__init__()
+#
+#         self.initUI()
+#
+#     def initUI(self):
+#
+#         self.statusbar = self.statusBar()
+#         self.statusbar.showMessage('Ready')
+#
+#         menubar = self.menuBar()
+#         viewMenu = menubar.addMenu('View')
+#         viewStatAct = QAction('View statusbar', self, checkable=True)
+#
+#         self.setGeometry(300,300,300)
+#         self.setWindowTitle("勾选菜单")
+#         self.show()
+
+
+# def main():
+#     app = QApplication(sys.argv)
+#     ex = Example()
+#     sys.exit(app.exec())
+#
+# if __name__ == '__main__':
+#     main()
+
+
+# file: check_menu.py
+#!/usr/bin/python
+
