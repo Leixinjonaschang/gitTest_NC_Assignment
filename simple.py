@@ -65,35 +65,70 @@
 # -----
 # 弹窗
 
+# import sys
+# from PyQt6.QtWidgets import QWidget, QMessageBox, QApplication
+
+# class Example(QWidget):
+#
+#     def __init__(self):
+#         super().__init__()
+#
+#         self.initUI()
+#
+#     def initUI(self):
+#
+#         self.setGeometry(300,300,300,300)
+#         self.setWindowTitle('Message Box')
+#         self.show()
+#
+#     def closeEvent(self, event):
+#
+#         reply = QMessageBox.question(self,'Message','Are you sure to quit?',QMessageBox.StandardButton.Yes |
+#                                      QMessageBox.StandardButton.No,QMessageBox.StandardButton.Yes)
+#
+#         if reply == QMessageBox.StandardButton.Yes:
+#             event.accept()
+#         else:
+#             event.ignore()
+#
+# def main():
+#     app = QApplication(sys.argv)
+#     test13 = Example()
+#     sys.exit(app.exec())
+#
+# if __name__ == '__main__':
+#     main()
+
+# ------
 import sys
-from PyQt6.QtWidgets import QWidget, QMessageBox, QApplication
+from PyQt6.QtWidgets import QWidget, QApplication
 
 class Example(QWidget):
-
-    def __init__(self):
+    def __init__(self): # 初始化
         super().__init__()
 
         self.initUI()
 
     def initUI(self):
 
-        self.setGeometry(300,300,300,300)
-        self.setWindowTitle('Message Box')
+        self.resize(350,250)
+        self.center()
+
+        self.setWindowTitle('the centering of window')
         self.show()
 
-    def closeEvent(self, event):
+    def center(self):
 
-        reply = QMessageBox.question(self,'Message','Are you sure to quit?',QMessageBox.StandardButton.Yes |
-                                     QMessageBox.StandardButton.No,QMessageBox.StandardButton.Yes)
+        qr = self.frameGeometry()
+        cp = self.screen().availableGeometry().center()
 
-        if reply == QMessageBox.StandardButton.Yes:
-            event.accept()
-        else:
-            event.ignore()
+        qr.moveCenter(cp)
+        self.move(qr.topLeft())
 
 def main():
+
     app = QApplication(sys.argv)
-    test13 = Example()
+    ex = Example()
     sys.exit(app.exec())
 
 if __name__ == '__main__':
