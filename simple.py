@@ -93,7 +93,7 @@ class Example(QWidget):
 
 def main():
     app = QApplication(sys.argv)
-    test12 = Example()
+    test13 = Example()
     sys.exit(app.exec())
 
 if __name__ == '__main__':
