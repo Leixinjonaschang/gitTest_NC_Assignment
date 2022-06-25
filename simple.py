@@ -100,36 +100,152 @@
 #     main()
 
 # ------
-import sys
-from PyQt6.QtWidgets import QWidget, QApplication
+# 窗口初始居中
+# import sys
+# from PyQt6.QtWidgets import QWidget, QApplication
+#
+# class Example(QWidget): # 继承QWidget
+#     def __init__(self): # 初始化父类属性
+#         super().__init__() # super()将父类和子类关联起来，让子类Example调用父类QWidget的初始化函数，包含父类所有属性（父类也称超类 superclass）
+#
+#         self.initUI()
+#
+#     def initUI(self):
+#
+#         self.resize(350,250)
+#         self.center()
+#
+#         self.setWindowTitle('the centering of window')
+#         self.show()
+#
+#     def center(self):
+#
+#         qr = self.frameGeometry()
+#         cp = self.screen().availableGeometry().center()
+#
+#         qr.moveCenter(cp)
+#         self.move(qr.topLeft())
+#
+# def main():
+#
+#     app = QApplication(sys.argv)
+#     ex8 = Example()
+#     sys.exit(app.exec())
+#
+# if __name__ == '__main__':
+#     main()
 
-class Example(QWidget):
-    def __init__(self): # 初始化
-        super().__init__()
 
-        self.initUI()
+# ----
+# 状态栏
+#
+# import sys
+# from PyQt6.QtWidgets import QMainWindow, QApplication
+#
+#
+# class Example(QMainWindow):
+#     def __init__(self):
+#         super().__init__()
+#
+#         self.initUI()
+#
+#     def initUI(self): # 这个方法在初始化方法中定为属性，可以把对窗口的初始化全部写在initUI()中
+#
+#         self.statusBar().showMessage('Ready2'+' '+'ready1')
+#
+#         self.setGeometry(300,300,300,300)
+#         self.setWindowTitle('Statusbar')
+#         self.show()
+#
+#
+# def main():
+#     app = QApplication(sys.argv)
+#     ex = Example()
+#     sys.exit(app.exec())
+#
+# if __name__ == '__main__':
+#     main()
 
-    def initUI(self):
 
-        self.resize(350,250)
-        self.center()
+#-------
+# 菜单栏
 
-        self.setWindowTitle('the centering of window')
-        self.show()
+# import sys
+# from PyQt6.QtWidgets import QMainWindow, QApplication
+# from PyQt6.QtGui import QIcon, QAction
+#
+# class Example(QMainWindow):
+#     def __init__(self):
+#         super().__init__()
+#
+#         self.initUI()
+#
+#     def initUI(self):
+#
+#
+#         exitAct = QAction(QIcon('exit.png'),'&Exit',self)
+#         exitAct.setShortcut('Ctrl+Q')
+#         exitAct.setStatusTip('Exit Application')
+#         exitAct.triggered.connect(QApplication.instance().quit)
+#
+#         self.statusBar()
+#
+#         menubar = self.menuBar()
+#         fileMenu = menubar.addMenu('&File')
+#         fileMenu.addAction(exitAct)
+#
+#
+#
+#         self.setGeometry(300,300,300,300)
+#         self.setWindowTitle('Menubar')
+#         self.show()
+#
+# def main():
+#     app = QApplication(sys.argv)
+#     ex = Example()
+#     sys.exit(app.exec())
+#
+# if __name__ == '__main__':
+#     main()
 
-    def center(self):
+# file: simple_menu.py
+#!/usr/bin/python
 
-        qr = self.frameGeometry()
-        cp = self.screen().availableGeometry().center()
+#--------
+# 子菜单
+# import sys
+# from PyQt6.QtWidgets import QMainWindow,QMenu,QApplication
+# from PyQt6.QtGui import QAction
+#
+# class Example(QMainWindow):
+#     def __init__(self):
+#         super().__init__()
+#
+#         self.initUI()
+#
+#     def initUI(self):
+#
+#         menubar = self.menuBar()
+#         fileMenu = menubar.addMenu('File')
+#
+#         impMenu = QMenu('import',self)
+#         impAct = QAction('import mail',self)
+#         impMenu.addAction(impAct)
+#
+#         newAct = QAction('new',self)
+#
+#         fileMenu.addAction(newAct)
+#         fileMenu.addMenu(impMenu)
+#
+#         self.setGeometry(300,300,300,300)
+#         self.setWindowTitle('Submenu')
+#         self.show()
+#
+# def main():
+#     app = QApplication(sys.argv)
+#     ex = Example()
+#     sys.exit(app.exec())
+#
+# if __name__ == '__main__':
+#     main()
 
-        qr.moveCenter(cp)
-        self.move(qr.topLeft())
-
-def main():
-
-    app = QApplication(sys.argv)
-    ex8 = Example()
-    sys.exit(app.exec())
-
-if __name__ == '__main__':
-    main()
